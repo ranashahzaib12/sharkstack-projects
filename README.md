@@ -60,4 +60,4 @@ These projects use the Groq API for LLM functionality. Make sure you:
 
  Store it securely (use .env or pass in UI)
 
-- Made with ❤️ by the SharkStack team.
+- Made with ❤️ SharkStack team.
