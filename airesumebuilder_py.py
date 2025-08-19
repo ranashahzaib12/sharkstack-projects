@@ -94,7 +94,7 @@ def handle_generate(b):
     story = [Paragraph(textwrap.fill(result, 100), styles["Normal"])]
     pdf.build(story)
 
-    print("\n✅ Resume files generated: `resume_output.docx` and `resume_output.pdf`")
+    print("\n Resume files generated: `resume_output.docx` and `resume_output.pdf`")
     files.download("resume_output.docx")
     files.download("resume_output.pdf")
 
