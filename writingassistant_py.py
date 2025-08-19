@@ -7,10 +7,8 @@ Original file is located at
     https://colab.research.google.com/drive/1AARZP4e2FjVqRkq-78HIfraKyuPfl6Up
 """
 
-# Step 1: Install dependencies
 # !pip install groq python-docx reportlab pdfplumber --quiet
 
-# Step 2: Imports
 import os
 import pdfplumber
 import textwrap
@@ -22,10 +20,9 @@ from reportlab.lib.styles import getSampleStyleSheet
 from IPython.display import display
 import ipywidgets as widgets
 
-# Step 3: Set Groq API Key
-GROQ_API_KEY = "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"  # Replace with your key
+GROQ_API_KEY = "gsk_etYE0IDkdm5ancvB37B4C6M1kg8"  # Replace with your key
 client = Groq(api_key=GROQ_API_KEY)
-#  Step 4: Helper - Generate blog post from topic
+
 def generate_blog(topic):
     prompt = f"Write a short blog post about the topic: '{topic}' in a friendly, helpful, and engaging tone."
 
@@ -38,7 +35,7 @@ def generate_blog(topic):
     )
     return chat_completion.choices[0].message.content
 
-# Step 5: Input Widgets
+
 topic_input = widgets.Textarea(
     placeholder='Enter a topic like “Benefits of Meditation”',
     description='Topic:',
@@ -50,7 +47,6 @@ generate_button = widgets.Button(description="Generate Blog", button_style='succ
 # Display widgets
 display(topic_input, generate_button)
 
-# Step 6: Logic to generate, show, and export blog
 def handle_generate(b):
     topic = topic_input.value.strip()
 
