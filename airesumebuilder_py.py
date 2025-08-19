@@ -7,10 +7,8 @@ Original file is located at
     https://colab.research.google.com/drive/1AARZP4e2FjVqRkq-78HIfraKyuPfl6Up
 """
 
-# Step 1: Install dependencies
 # !pip install groq python-docx reportlab pdfplumber --quiet
 
-# Step 2: Imports
 import os
 import pdfplumber
 import textwrap
@@ -22,11 +20,9 @@ from reportlab.lib.styles import getSampleStyleSheet
 from IPython.display import display
 import ipywidgets as widgets
 
-# Step 3: Set Groq API Key
-GROQ_API_KEY = "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"  # Replace with your key
+GROQ_API_KEY = "gsk_etYE0IDkdm5VKCu8mTZqWGdvB37B4C6M1kg8"  # Replace with your key
 client = Groq(api_key=GROQ_API_KEY)
 
-# Step 4: Helper - Generate Resume with Groq LLM
 def generate_resume(prompt):
     chat_completion = client.chat.completions.create(
         messages=[
@@ -37,20 +33,18 @@ def generate_resume(prompt):
     )
     return chat_completion.choices[0].message.content
 
-# Step 5: Input Widgets
-# Personal Info Inputs
+# Personal Info 
 name_input = widgets.Text(placeholder='Your full name', description='Name:', layout=widgets.Layout(width='600px'))
 location_input = widgets.Text(placeholder='City, State', description='Location:', layout=widgets.Layout(width='600px'))
 email_input = widgets.Text(placeholder='Email Address', description='Email:', layout=widgets.Layout(width='600px'))
 phone_input = widgets.Text(placeholder='Phone Number', description='Phone:', layout=widgets.Layout(width='600px'))
 linkedin_input = widgets.Text(placeholder='LinkedIn Profile URL', description='LinkedIn:', layout=widgets.Layout(width='600px'))
 
-# Resume Content Inputs
+# Resume Content 
 education_input = widgets.Textarea(placeholder='Your education details...', description='Education:', layout=widgets.Layout(width='600px', height='80px'))
 exp_input = widgets.Textarea(placeholder='Describe your experience...', description='Experience:', layout=widgets.Layout(width='600px', height='100px'))
 skills_input = widgets.Textarea(placeholder='List your skills...', description='Skills:', layout=widgets.Layout(width='600px', height='80px'))
 
-# Upload + Button
 upload_button = widgets.FileUpload(accept='.pdf', multiple=False)
 generate_button = widgets.Button(description="Generate Resume", button_style='success')
 
@@ -59,7 +53,6 @@ display(name_input, location_input, email_input, phone_input, linkedin_input,
         education_input, exp_input, skills_input, upload_button, generate_button)
 
 
-# Step 6: Generate Resume Logic
 def handle_generate(b):
     user_resume_text = ""
 
