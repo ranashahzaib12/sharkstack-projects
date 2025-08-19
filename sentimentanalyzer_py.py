@@ -50,13 +50,13 @@ def handle_generate(b):
     topic = input_text.value.strip()
 
     if not topic:
-        print("⚠️ Please enter content .")
+        print("Please enter content .")
         return
 
-    print("⏳ Analyzing text...")
+    print(" Analyzing text...")
     result = generate_blog(topic)
 
-    print("\n\n--- ✍️ Reviewing sentiment ---\n\n")
+    print("\n\n--- Reviewing sentiment ---\n\n")
     print(result)
 
 
