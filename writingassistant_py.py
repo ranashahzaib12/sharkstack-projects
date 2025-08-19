@@ -51,13 +51,13 @@ def handle_generate(b):
     topic = topic_input.value.strip()
 
     if not topic:
-        print("⚠️ Please enter a topic to generate content.")
+        print("Please enter a topic to generate content.")
         return
 
-    print("⏳ Generating content...")
+    print("Generating content...")
     result = generate_blog(topic)
 
-    print("\n\n--- ✍️ Generated Blog ---\n\n")
+    print("\n\n--- Generated Blog ---\n\n")
     print(result)
 
     # Save to DOCX
@@ -72,7 +72,7 @@ def handle_generate(b):
     story = [Paragraph(textwrap.fill(result, 100), styles["Normal"])]
     pdf.build(story)
 
-    print("\n✅ Blog files generated: `blog_output.docx` and `blog_output.pdf`")
+    print("\n Blog files generated: `blog_output.docx` and `blog_output.pdf`")
     files.download("blog_output.docx")
     files.download("blog_output.pdf")
 
